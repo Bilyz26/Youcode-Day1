@@ -1,26 +1,25 @@
 #include <stdio.h>
 
+int iskabissaYear(int year) {
+    return (year % 4 == 0 && (year % 100 != 0 ||
+                               year % 400 == 0));
+}
+
+int getJoInYear(int year) {
+    return iskabissaYear(year) ? 366 : 365;
+}
+
 int main() {
-    printf("Entrez le nombre d'années : \n");
-    int anne;
-    scanf("%d", &anne);
-
-    int kabbissa = anne / 4;
-    int jo = anne * 365 + kabbissa;
-    int mo = anne * 12;
-    int he = jo * 24;
-    int min = he * 60;
-    int sec = min * 60;
-
-    printf("Mois: %d\n", mo);
-    printf("Jours: %d\n", jo);
-    printf("Heures: %d\n", he);
-    printf("Minutes: %d\n", min);
-    printf("Secondes: %d\n", sec);
-
-
-
-
+    int year;
+    printf("Enter a year: ");
+    scanf("%d", &year);
+    printf("Year %d has %d months.\n", year, 12);
+    int days = getJoInYear(year);
+    printf("Year %d has:\n ", year);
+    printf("%d days.\n", days);
+    printf("%d hours.\n", days * 24);
+    printf("%d minutes.\n", days * 24 * 60);
+    printf("%d seconds.\n", days * 24 * 60 * 60);
 
     return 0;
 }
