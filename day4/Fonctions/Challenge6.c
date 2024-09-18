@@ -7,6 +7,8 @@ unsigned long long fibonacci(int n) {
 
     unsigned long long a = 0, b = 1, temp;
     for (int i = 2; i <= n; i++) {
+            if(temp>n
+
         temp = a + b;
         a = b;
         b = temp;
